@@ -4,7 +4,7 @@ import heapq
 from dataclasses import dataclass
 from typing import Generic, Iterator, TypeVar
 
-from rare_identity_protocol.errors import ResourceLimitError
+from rare_protocol.errors import ResourceLimitError
 
 K = TypeVar("K")
 V = TypeVar("V")

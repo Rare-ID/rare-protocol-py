@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 import unicodedata
 
-from rare_identity_protocol.errors import TokenValidationError
+from rare_protocol.errors import TokenValidationError
 
 
 MAX_NAME_LENGTH = 48

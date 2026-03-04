@@ -3,7 +3,7 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from rare_identity_protocol import (
+from rare_protocol import (
     build_action_payload,
     build_auth_challenge_payload,
     build_full_attestation_issue_payload,

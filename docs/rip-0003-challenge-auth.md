@@ -88,11 +88,11 @@ This RIP standardizes v1 signing strings and should remain stable. Any future fo
 - Context fields (`aud`, `request_id`, `target_level`) prevent cross-flow signature reuse.
 
 ## Test Vectors/Examples
-- Test vectors: `rare-identity-core/docs/test-vectors/rip-v1-signing-inputs.json`
+- Test vectors: `docs/test-vectors/rip-v1-signing-inputs.json`
 - Example challenge string: `rare-auth-v1:platform:abc:1700000000:1700000300`
 
 ## Reference Implementation
-- `rare-identity-core/libs/rare_identity_protocol`
-- `rare-identity-core/services/rare_api/service.py`
-- `rare-identity-core/tests/test_core.py`
-- `rare-agent-sdk-python/tests/test_sdk.py`
+- `src/rare_protocol`
+- `(external Rare API implementation repository)`
+- `(external integration tests)`
+- `rare-agent-python/tests/test_sdk.py`

@@ -5,7 +5,7 @@ from typing import Callable
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PublicKey
 
-from rare_identity_protocol import (
+from rare_protocol import (
     TokenValidationError,
     decode_jws,
     load_public_key,

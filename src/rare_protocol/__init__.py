@@ -1,5 +1,5 @@
-from rare_identity_protocol.actions import build_action_payload
-from rare_identity_protocol.challenge import (
+from rare_protocol.actions import build_action_payload
+from rare_protocol.challenge import (
     build_auth_challenge_payload,
     build_full_attestation_issue_payload,
     build_agent_auth_payload,
@@ -8,7 +8,7 @@ from rare_identity_protocol.challenge import (
     build_set_name_payload,
     build_upgrade_request_payload,
 )
-from rare_identity_protocol.crypto import (
+from rare_protocol.crypto import (
     b64url_decode,
     b64url_encode,
     decode_jws,
@@ -24,15 +24,15 @@ from rare_identity_protocol.crypto import (
     verify_detached,
     verify_jws,
 )
-from rare_identity_protocol.errors import (
+from rare_protocol.errors import (
     ProtocolError,
     ResourceLimitError,
     SignatureError,
     TokenValidationError,
 )
-from rare_identity_protocol.expiring_store import ExpiringMap, ExpiringSet
-from rare_identity_protocol.name_policy import normalize_name, validate_name
-from rare_identity_protocol.tokens import (
+from rare_protocol.expiring_store import ExpiringMap, ExpiringSet
+from rare_protocol.name_policy import normalize_name, validate_name
+from rare_protocol.tokens import (
     issue_agent_delegation,
     issue_full_identity_attestation,
     issue_public_identity_attestation,

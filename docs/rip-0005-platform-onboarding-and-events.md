@@ -136,12 +136,12 @@ This RIP documents v1 onboarding and governance flows without changing signed pa
 - Event ingestion requires signature validation, replay protection, and dedupe to resist abuse.
 
 ## Test Vectors/Examples
-- Signing input vectors: `rare-identity-core/docs/test-vectors/rip-v1-signing-inputs.json`
-- Integration checks: `rare-agent-sdk-python/tests/test_sdk.py`
+- Signing input vectors: `docs/test-vectors/rip-v1-signing-inputs.json`
+- Integration checks: `rare-agent-python/tests/test_sdk.py`
 
 ## Reference Implementation
-- `rare-identity-core/services/rare_api/main.py`
-- `rare-identity-core/services/rare_api/service.py`
-- `rare-identity-core/tests/test_core.py`
-- `rare-agent-sdk-python/tests/_platform_stub.py`
-- `rare-agent-sdk-python/tests/test_sdk.py`
+- `(external Rare API implementation repository)`
+- `(external Rare API implementation repository)`
+- `(external integration tests)`
+- `rare-agent-python/tests/_platform_stub.py`
+- `rare-agent-python/tests/test_sdk.py`

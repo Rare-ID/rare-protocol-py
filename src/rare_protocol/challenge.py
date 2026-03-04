@@ -1,4 +1,4 @@
-from rare_identity_protocol.name_policy import normalize_name
+from rare_protocol.name_policy import normalize_name
 
 
 def build_auth_challenge_payload(

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from rare_identity_protocol import (
+from rare_protocol import (
     ExpiringMap,
     ExpiringSet,
     ResourceLimitError,

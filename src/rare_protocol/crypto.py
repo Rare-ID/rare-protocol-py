@@ -14,7 +14,7 @@ from cryptography.hazmat.primitives.asymmetric.ed25519 import (
     Ed25519PublicKey,
 )
 
-from rare_identity_protocol.errors import SignatureError, TokenValidationError
+from rare_protocol.errors import SignatureError, TokenValidationError
 
 
 RAW_KEY_SIZE = 32

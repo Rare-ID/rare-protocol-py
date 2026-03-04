@@ -4,8 +4,8 @@ from typing import Iterable
 
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
 
-from rare_identity_protocol.crypto import now_ts, sign_jws
-from rare_identity_protocol.errors import TokenValidationError
+from rare_protocol.crypto import now_ts, sign_jws
+from rare_protocol.errors import TokenValidationError
 
 
 def _build_identity_claims(
