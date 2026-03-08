@@ -70,7 +70,7 @@ Example payload fields:
 - `act=delegated_by_agent`
 
 ## Reference Implementation
-- `rare-identity-core/libs/rare_identity_protocol`
-- `rare-identity-core/libs/rare_identity_verifier`
+- `rare-identity-protocol-python/src/rare_identity_protocol`
+- `rare-identity-verifier-python/src/rare_identity_verifier`
 - `rare-agent-sdk-python/tests/_platform_stub.py`
 - `rare-agent-sdk-python/tests/test_sdk.py`

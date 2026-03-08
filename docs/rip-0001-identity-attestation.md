@@ -81,7 +81,7 @@ This RIP intentionally drops legacy `typ=rare.identity+jws`. Integrations still 
   - payload `lvl=L2`
 
 ## Reference Implementation
-- `rare-identity-core/libs/rare_identity_protocol`
-- `rare-identity-core/libs/rare_identity_verifier`
+- `rare-identity-protocol-python/src/rare_identity_protocol`
+- `rare-identity-verifier-python/src/rare_identity_verifier`
 - `rare-identity-core/services/rare_api/service.py`
 - `rare-identity-core/tests/test_core.py`

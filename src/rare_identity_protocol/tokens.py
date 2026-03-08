@@ -17,6 +17,7 @@ def _build_identity_claims(
     org_id: str | None,
     twitter: dict[str, str] | None,
     github: dict[str, str] | None,
+    linkedin: dict[str, str] | None,
     include_extended_claims: bool,
 ) -> dict:
     claims: dict[str, object] = {
@@ -36,6 +37,8 @@ def _build_identity_claims(
         claims["twitter"] = twitter
     if github:
         claims["github"] = github
+    if linkedin:
+        claims["linkedin"] = linkedin
     return claims
 
 
@@ -54,6 +57,7 @@ def build_identity_payload(
     org_id: str | None = None,
     twitter: dict[str, str] | None = None,
     github: dict[str, str] | None = None,
+    linkedin: dict[str, str] | None = None,
 ) -> dict:
     claims = _build_identity_claims(
         name=name,
@@ -63,6 +67,7 @@ def build_identity_payload(
         org_id=org_id,
         twitter=twitter,
         github=github,
+        linkedin=linkedin,
         include_extended_claims=include_extended_claims,
     )
 
@@ -96,6 +101,7 @@ def issue_public_identity_attestation(
     org_id: str | None = None,
     twitter: dict[str, str] | None = None,
     github: dict[str, str] | None = None,
+    linkedin: dict[str, str] | None = None,
 ) -> str:
     iat = now_ts()
     exp = iat + ttl_seconds
@@ -133,6 +139,7 @@ def issue_full_identity_attestation(
     org_id: str | None = None,
     twitter: dict[str, str] | None = None,
     github: dict[str, str] | None = None,
+    linkedin: dict[str, str] | None = None,
 ) -> str:
     iat = now_ts()
     exp = iat + ttl_seconds
@@ -150,6 +157,7 @@ def issue_full_identity_attestation(
         org_id=org_id,
         twitter=twitter,
         github=github,
+        linkedin=linkedin,
     )
     return sign_jws(
         payload=payload,

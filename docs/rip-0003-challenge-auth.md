@@ -13,7 +13,7 @@ Superseded-By: None
 Discussion: https://github.com/rare-project/rare/discussions
 
 ## Abstract
-This RIP defines fixed signing input formats for challenge login, self-registration, action signing, platform grant authorization, full attestation issue authorization, and upgrade requests.
+This RIP defines fixed signing input formats for challenge login, self-registration, action signing, full attestation issue authorization, and upgrade requests.
 
 ## Motivation
 Deterministic signing inputs are required to prevent replay, cross-context signature reuse, and incompatible client/server implementations.
@@ -45,15 +45,6 @@ Platform requirements:
 3. Validate timestamps and action type.
 4. Validate `aud` and `session_token` binding.
 
-### Platform grant signing input
-`rare-grant-v1:{agent_id}:{platform_aud}:{nonce}:{issued_at}:{expires_at}`
-
-Rare requirements:
-1. Verify `signature_by_agent` using `agent_id`.
-2. Enforce max 30 second skew.
-3. Enforce one-time nonce per `agent_id`.
-4. Use same shape for grant create and revoke operations.
-
 ### Full attestation issue signing input
 `rare-full-att-v1:{agent_id}:{platform_aud}:{nonce}:{issued_at}:{expires_at}`
 
@@ -61,7 +52,7 @@ Rare requirements:
 1. Verify `signature_by_agent` using `agent_id`.
 2. Enforce max 30 second skew.
 3. Enforce one-time nonce per `agent_id`.
-4. Issue full attestation only when platform is active and grant is active.
+4. Issue full attestation only when platform is active.
 
 ### Upgrade request signing input
 `rare-upgrade-v1:{agent_id}:{target_level}:{request_id}:{nonce}:{issued_at}:{expires_at}`
@@ -92,7 +83,7 @@ This RIP standardizes v1 signing strings and should remain stable. Any future fo
 - Example challenge string: `rare-auth-v1:platform:abc:1700000000:1700000300`
 
 ## Reference Implementation
-- `rare-identity-core/libs/rare_identity_protocol`
+- `rare-identity-protocol-python/src/rare_identity_protocol`
 - `rare-identity-core/services/rare_api/service.py`
 - `rare-identity-core/tests/test_core.py`
 - `rare-agent-sdk-python/tests/test_sdk.py`

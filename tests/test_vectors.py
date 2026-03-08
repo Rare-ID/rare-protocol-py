@@ -7,7 +7,6 @@ from rare_identity_protocol import (
     build_action_payload,
     build_auth_challenge_payload,
     build_full_attestation_issue_payload,
-    build_platform_grant_payload,
     build_register_payload,
     build_set_name_payload,
     build_upgrade_request_payload,
@@ -15,8 +14,8 @@ from rare_identity_protocol import (
 
 
 def test_rip_v1_signing_input_vectors() -> None:
-    root = Path(__file__).resolve().parents[1]
-    vectors_path = root / "docs" / "test-vectors" / "rip-v1-signing-inputs.json"
+    root = Path(__file__).resolve().parent
+    vectors_path = root / "fixtures" / "rip-v1-signing-inputs.json"
     vectors = json.loads(vectors_path.read_text(encoding="utf-8"))
 
     challenge = vectors["challenge"]
@@ -39,9 +38,6 @@ def test_rip_v1_signing_input_vectors() -> None:
         build_register_payload(**register_nfkc_trim["input"])
         == register_nfkc_trim["expected"]
     )
-
-    platform_grant = vectors["platform_grant"]
-    assert build_platform_grant_payload(**platform_grant["input"]) == platform_grant["expected"]
 
     full_attestation_issue = vectors["full_attestation_issue"]
     assert (

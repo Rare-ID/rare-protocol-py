@@ -13,7 +13,7 @@ Superseded-By: None
 Discussion: https://github.com/rare-project/rare/discussions
 
 ## Abstract
-This RIP defines platform onboarding, agent grant workflows for full attestation, human-in-the-loop upgrade states, and negative event ingestion into the identity library.
+This RIP defines platform onboarding, full attestation issuance for registered platforms, human-in-the-loop upgrade states, and negative event ingestion into the identity library.
 
 ## Motivation
 Rare needs a consistent path for third-party platforms to register trust anchors, receive audience-bound identity assertions, and report governance-relevant security events.
@@ -39,17 +39,7 @@ Validation requirements:
 
 Output fields include `platform_id`, `platform_aud`, `domain`, `status=active`.
 
-### Agent grant and full attestation
-Grant create/revoke:
-- `POST /v1/agents/platform-grants`
-- `DELETE /v1/agents/platform-grants/{platform_aud}`
-- Signed input: `rare-grant-v1:{agent_id}:{platform_aud}:{nonce}:{issued_at}:{expires_at}`
-- Policy: `expires_at - issued_at <= 300`
-
-Grant list:
-- `GET /v1/agents/platform-grants/{agent_id}`
-- Auth: `Authorization: Bearer <admin_or_bound_hosted_token>`
-
+### Full attestation for registered platform
 Full attestation issue:
 - Endpoint: `POST /v1/attestations/full/issue`
 - Signed input: `rare-full-att-v1:{agent_id}:{platform_aud}:{nonce}:{issued_at}:{expires_at}`
@@ -57,7 +47,6 @@ Full attestation issue:
 
 Preconditions:
 1. Platform is registered and active.
-2. Grant exists and is not revoked.
 
 ### Human upgrade flow (L1 and L2)
 Upgrade status model:
@@ -131,7 +120,7 @@ This RIP documents v1 onboarding and governance flows without changing signed pa
 
 ## Security Considerations
 - DNS challenge single-use and expiry are mandatory.
-- Grant and full attestation signatures must be nonce-protected and short-lived.
+- Full attestation signatures must be nonce-protected and short-lived.
 - Upgrade flows require replay-safe tokens and verified ownership signals.
 - Event ingestion requires signature validation, replay protection, and dedupe to resist abuse.
 

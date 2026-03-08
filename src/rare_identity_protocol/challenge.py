@@ -35,17 +35,6 @@ def build_register_payload(
     return f"rare-register-v1:{agent_id}:{normalized_name}:{nonce}:{issued_at}:{expires_at}"
 
 
-def build_platform_grant_payload(
-    *,
-    agent_id: str,
-    platform_aud: str,
-    nonce: str,
-    issued_at: int,
-    expires_at: int,
-) -> str:
-    return f"rare-grant-v1:{agent_id}:{platform_aud}:{nonce}:{issued_at}:{expires_at}"
-
-
 def build_full_attestation_issue_payload(
     *,
     agent_id: str,
